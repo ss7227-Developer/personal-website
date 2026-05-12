@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { parsePosts } from './posts'
+import { parsePosts, formatDate, getPostBySlugFrom } from './posts'
 
 describe('parsePosts', () => {
   it('parses title, slug, date, excerpt, and content', () => {
@@ -27,5 +27,34 @@ describe('parsePosts', () => {
 
   it('returns empty array for empty input', () => {
     expect(parsePosts({})).toEqual([])
+  })
+})
+
+describe('formatDate', () => {
+  it('formats a YYYY-MM-DD date string', () => {
+    const result = formatDate('2026-05-01')
+    expect(result).toBe('May 1, 2026')
+  })
+
+  it('does not shift day due to timezone offset', () => {
+    // Without the T00:00:00 fix, timezones west of UTC would show Apr 30
+    const result = formatDate('2026-05-01')
+    expect(result).not.toContain('Apr')
+    expect(result).toContain('May')
+  })
+})
+
+describe('getPostBySlugFrom', () => {
+  const posts = [
+    { slug: 'hello', title: 'Hello', date: '2026-05-01', excerpt: 'Hi', content: 'body' },
+    { slug: 'world', title: 'World', date: '2026-04-01', excerpt: 'Yo', content: 'body' },
+  ]
+
+  it('returns the matching post', () => {
+    expect(getPostBySlugFrom(posts, 'hello')?.title).toBe('Hello')
+  })
+
+  it('returns null for unknown slug', () => {
+    expect(getPostBySlugFrom(posts, 'missing')).toBeNull()
   })
 })
