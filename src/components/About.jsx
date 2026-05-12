@@ -6,6 +6,7 @@ export default function About() {
   const rightRef = useRef(null);
 
   useEffect(() => {
+    let timer;
     const section = sectionRef.current;
     const left = leftRef.current;
     const right = rightRef.current;
@@ -15,11 +16,8 @@ export default function About() {
       ([entry]) => {
         if (entry.isIntersecting) {
           left.classList.add('visible');
-          const timer = setTimeout(() => {
-            right.classList.add('visible');
-          }, 150);
+          timer = setTimeout(() => right.classList.add('visible'), 150);
           observer.disconnect();
-          return () => clearTimeout(timer);
         }
       },
       { threshold: 0.1 }
@@ -27,7 +25,10 @@ export default function About() {
 
     observer.observe(section);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
