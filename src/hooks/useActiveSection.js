@@ -4,16 +4,17 @@ export function useActiveSection(sectionIds) {
   const [active, setActive] = useState('')
 
   useEffect(() => {
-    if (!sectionIds.length) return
+    const ids = [...sectionIds]
+    if (!ids.length) return
     const visible = new Set()
-    const observers = sectionIds.map(id => {
+    const observers = ids.map(id => {
       const el = document.getElementById(id)
       if (!el) return null
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) visible.add(id)
           else visible.delete(id)
-          const first = sectionIds.find(s => visible.has(s))
+          const first = ids.find(s => visible.has(s))
           if (first) setActive(first)
         },
         { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
@@ -22,7 +23,8 @@ export function useActiveSection(sectionIds) {
       return observer
     })
     return () => observers.forEach(o => o?.disconnect())
-  }, [sectionIds])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sectionIds.join(',')])
 
   return active
 }
