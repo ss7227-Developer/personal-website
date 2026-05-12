@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
 import { useActiveSection } from '../hooks/useActiveSection'
 
 const NAV_LINKS = [
@@ -8,7 +7,6 @@ const NAV_LINKS = [
   { label: 'Skills', id: 'skills' },
   { label: 'Projects', id: 'projects' },
   { label: 'Blog', id: 'blog' },
-  { label: 'Resume', id: 'resume' },
   { label: 'Contact', id: 'contact' },
 ]
 
@@ -47,9 +45,9 @@ export default function Nav() {
         <Link
           to="/"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="font-serif text-lg text-text hover:text-accent transition-colors"
+          className="font-serif text-lg text-accent transition-colors"
         >
-          Samyukkta Suryanarayanan
+          SS
         </Link>
 
         {/* Desktop */}
@@ -68,6 +66,16 @@ export default function Nav() {
               </button>
             </li>
           ))}
+          <li>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs uppercase tracking-widest transition-colors pb-0.5 text-muted hover:text-text"
+            >
+              Resume
+            </a>
+          </li>
         </ul>
 
         {/* Hamburger */}
@@ -76,7 +84,7 @@ export default function Nav() {
           onClick={() => setMenuOpen(v => !v)}
           aria-label="Toggle menu"
         >
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          {menuOpen ? '✕' : '☰'}
         </button>
       </nav>
 
@@ -94,6 +102,15 @@ export default function Nav() {
               {label}
             </button>
           ))}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
+            className="font-mono text-sm uppercase tracking-widest transition-colors text-muted hover:text-text"
+          >
+            Resume
+          </a>
         </div>
       )}
     </header>
