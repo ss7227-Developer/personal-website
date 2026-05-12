@@ -30,6 +30,13 @@ export default function Nav() {
     return () => { document.body.style.overflow = '' }
   }, [menuOpen])
 
+  useEffect(() => {
+    if (!menuOpen) return
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [menuOpen])
+
   const scrollTo = (id) => {
     setMenuOpen(false)
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -44,7 +51,6 @@ export default function Nav() {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           to="/"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="font-serif text-lg text-accent transition-colors"
         >
           SS
@@ -83,6 +89,8 @@ export default function Nav() {
           className="md:hidden text-muted hover:text-text transition-colors"
           onClick={() => setMenuOpen(v => !v)}
           aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           {menuOpen ? '✕' : '☰'}
         </button>
@@ -90,7 +98,7 @@ export default function Nav() {
 
       {/* Mobile overlay */}
       {menuOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-bg z-40 flex flex-col items-center justify-center gap-10">
+        <div id="mobile-menu" role="navigation" aria-label="Mobile navigation" className="md:hidden fixed inset-0 top-16 bg-bg z-50 flex flex-col items-center justify-center gap-10">
           {NAV_LINKS.map(({ label, id }) => (
             <button
               key={id}
