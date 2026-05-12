@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 const TAGLINES = [
   "I build AI systems that work in production.",
@@ -7,7 +7,7 @@ const TAGLINES = [
   "Security-aware ML systems.",
 ];
 
-function scrollTo(id) {
+function scrollToSection(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -33,14 +33,18 @@ export default function Hero() {
 
   // Rotating tagline every 3 seconds
   useEffect(() => {
+    let fadeTimer = null;
     const interval = setInterval(() => {
       setTaglineFading(true);
-      setTimeout(() => {
+      fadeTimer = setTimeout(() => {
         setTaglineIndex((prev) => (prev + 1) % TAGLINES.length);
         setTaglineFading(false);
       }, 300);
     }, 3000);
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(interval);
+      if (fadeTimer !== null) clearTimeout(fadeTimer);
+    };
   }, []);
 
   return (
@@ -65,21 +69,23 @@ export default function Hero() {
 
         {/* Rotating tagline */}
         <p
-          className={`reveal${visible[2] ? ' visible' : ''} font-mono text-muted text-sm md:text-base transition-opacity duration-300 ${taglineFading ? 'opacity-0' : 'opacity-100'}`}
+          className={`reveal${visible[2] ? ' visible' : ''} font-mono text-muted text-sm md:text-base min-h-[2.5rem] md:min-h-[1.75rem]`}
         >
-          {TAGLINES[taglineIndex]}
+          <span className={`transition-opacity duration-300 ${taglineFading ? 'opacity-0' : 'opacity-100'}`}>
+            {TAGLINES[taglineIndex]}
+          </span>
         </p>
 
         {/* CTA buttons */}
         <div className={`reveal${visible[3] ? ' visible' : ''} flex gap-4`}>
           <button
-            onClick={() => scrollTo('projects')}
+            onClick={() => scrollToSection('projects')}
             className="border border-accent text-accent px-6 py-3 font-mono text-sm hover:bg-accent hover:text-bg transition-colors"
           >
             View Work
           </button>
           <button
-            onClick={() => scrollTo('blog')}
+            onClick={() => scrollToSection('blog')}
             className="border border-border text-muted px-6 py-3 font-mono text-sm hover:border-text hover:text-text transition-colors"
           >
             Read Writing
