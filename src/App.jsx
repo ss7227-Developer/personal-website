@@ -7,10 +7,15 @@ import BlogPost from './pages/BlogPost'
 function AnimatedRoutes() {
   const location = useLocation()
   const containerRef = useRef(null)
+  const didMount = useRef(false)
 
   useEffect(() => {
     const el = containerRef.current
     if (!el) return
+    if (!didMount.current) {
+      didMount.current = true
+      return
+    }
     el.style.opacity = '0'
     const t = setTimeout(() => { el.style.opacity = '1' }, 50)
     return () => clearTimeout(t)

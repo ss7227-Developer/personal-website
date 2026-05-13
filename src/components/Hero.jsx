@@ -18,7 +18,7 @@ export default function Hero() {
 
   // Staggered reveal on mount
   useEffect(() => {
-    const delays = [0, 150, 300, 450];
+    const delays = [0, 80, 160, 240];
     const timers = delays.map((delay, i) =>
       setTimeout(() => {
         setVisible((prev) => {
