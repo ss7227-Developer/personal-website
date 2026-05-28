@@ -41,10 +41,10 @@ export default function Contact() {
               I'm open to interesting problems, collaborations, and conversations about AI systems.
             </p>
             <a
-              href="mailto:sammus2024@gmail.com"
+              href="mailto:ss7227@columbia.edu"
               className="border border-accent text-accent font-mono text-sm px-8 py-4 hover:bg-accent hover:text-bg transition-colors inline-block"
             >
-              sammus2024@gmail.com
+              ss7227@columbia.edu
             </a>
             <div className="mt-10 flex gap-6">
               <a
