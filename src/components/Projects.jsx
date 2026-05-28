@@ -38,7 +38,7 @@ export default function Projects() {
         <p className="font-mono text-muted text-xs uppercase tracking-widest mb-4">
           — Projects
         </p>
-        <h2 className="font-serif text-4xl md:text-5xl text-text mb-12">
+        <h2 className="font-serif text-4xl md:text-5xl text-accent mb-12">
           Things I've built.
         </h2>
 
@@ -53,7 +53,7 @@ export default function Projects() {
                 {project.title}
               </h3>
 
-              <p className="font-mono text-xs text-muted leading-relaxed flex-1">
+              <p className="font-mono text-sm text-text leading-relaxed flex-1">
                 {project.description}
               </p>
 

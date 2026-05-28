@@ -60,7 +60,7 @@ export default function Skills() {
         <p className="font-mono text-muted text-xs uppercase tracking-widest mb-4">
           — Skills
         </p>
-        <h2 className="font-serif text-4xl md:text-5xl text-text mb-12">
+        <h2 className="font-serif text-4xl md:text-5xl text-accent mb-12">
           What I work with.
         </h2>
 
@@ -75,7 +75,7 @@ export default function Skills() {
               {group.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="border border-border text-muted font-mono text-xs px-3 py-1 hover:border-accent hover:text-accent transition-colors cursor-default"
+                  className="border border-border text-text font-mono text-base px-3 py-1 hover:border-accent hover:text-accent transition-colors cursor-default"
                 >
                   {tag}
                 </span>

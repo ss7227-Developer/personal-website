@@ -39,7 +39,7 @@ export default function About() {
           <p className="font-mono text-muted text-xs uppercase tracking-widest mb-4">
             — About
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-text">
+          <h2 className="font-serif text-4xl md:text-5xl text-accent">
             Who I am.
           </h2>
         </div>

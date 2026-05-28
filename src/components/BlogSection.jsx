@@ -35,7 +35,7 @@ export default function BlogSection() {
         <p className="font-mono text-muted text-xs uppercase tracking-widest mb-4">
           — Writing
         </p>
-        <h2 className="font-serif text-4xl md:text-5xl text-text mb-12">
+        <h2 className="font-serif text-4xl md:text-5xl text-accent mb-12">
           Recent writing.
         </h2>
 

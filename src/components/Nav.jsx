@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useActiveSection } from '../hooks/useActiveSection'
 
 const NAV_LINKS = [
@@ -16,6 +16,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
   const isHome = location.pathname === '/'
   const active = useActiveSection(isHome ? SECTION_IDS : [])
 
@@ -39,7 +40,12 @@ export default function Nav() {
 
   const scrollTo = (id) => {
     setMenuOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    if (!isHome) {
+      navigate('/')
+      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 300)
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
@@ -51,7 +57,7 @@ export default function Nav() {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link
           to="/"
-          className="font-serif text-lg text-accent transition-colors"
+          className="font-serif text-3xl text-accent transition-colors"
         >
           SS
         </Link>
@@ -62,7 +68,7 @@ export default function Nav() {
             <li key={id}>
               <button
                 onClick={() => scrollTo(id)}
-                className={`font-mono text-xs uppercase tracking-widest transition-colors pb-0.5 ${
+                className={`font-mono text-base uppercase tracking-widest transition-colors pb-0.5 ${
                   active === id
                     ? 'text-accent border-b border-accent'
                     : 'text-muted hover:text-text'
@@ -77,7 +83,7 @@ export default function Nav() {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs uppercase tracking-widest transition-colors pb-0.5 text-muted hover:text-text"
+              className="font-mono text-base uppercase tracking-widest transition-colors pb-0.5 text-muted hover:text-text"
             >
               Resume
             </a>
@@ -103,7 +109,7 @@ export default function Nav() {
             <button
               key={id}
               onClick={() => scrollTo(id)}
-              className={`font-mono text-sm uppercase tracking-widest transition-colors ${
+              className={`font-mono text-base uppercase tracking-widest transition-colors ${
                 active === id ? 'text-accent' : 'text-muted hover:text-text'
               }`}
             >
@@ -115,7 +121,7 @@ export default function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
-            className="font-mono text-sm uppercase tracking-widest transition-colors text-muted hover:text-text"
+            className="font-mono text-base uppercase tracking-widest transition-colors text-muted hover:text-text"
           >
             Resume
           </a>

@@ -31,7 +31,7 @@ export default function Resume() {
         <p className="font-mono text-muted text-xs uppercase tracking-widest mb-4">
           — Resume
         </p>
-        <h2 className="font-serif text-4xl md:text-5xl text-text mb-6">
+        <h2 className="font-serif text-4xl md:text-5xl text-accent mb-6">
           Get my resume.
         </h2>
         <p className="font-mono text-sm text-muted mb-10">
