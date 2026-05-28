@@ -48,7 +48,7 @@ export default function Contact() {
             </a>
             <div className="mt-10 flex gap-6">
               <a
-                href="https://github.com/sammy2201"
+                href="https://github.com/ss7227-Developer"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-xs text-muted hover:text-accent transition-colors"
@@ -75,7 +75,7 @@ export default function Contact() {
           </span>
           <div className="flex gap-6">
             <a
-              href="https://github.com/sammy2201"
+              href="https://github.com/ss7227-Developer"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-xs text-muted hover:text-accent transition-colors"
