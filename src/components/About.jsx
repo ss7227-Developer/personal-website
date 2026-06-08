@@ -11,7 +11,7 @@ export default function About() {
         </h2>
 
         {/* 2-column bio grid */}
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-5">
+        <div className="grid md:grid-cols-2 gap-8">
           <p className="font-mono text-base leading-relaxed text-text/80">
             I'm Sammu, a software engineer and AI builder based in New York. I just completed my master's in Computer Science (ML track) at Columbia, and I'm actively looking for my next full-time role where I can keep doing what I love most: building things that are hard to build and actually matter to the people using them.
           </p>
