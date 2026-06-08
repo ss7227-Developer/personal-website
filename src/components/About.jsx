@@ -1,49 +1,9 @@
-import { useEffect, useRef } from 'react';
-
 export default function About() {
-  const sectionRef = useRef(null);
-  const leftRef = useRef(null);
-  const rightRef = useRef(null);
-
-  useEffect(() => {
-    let timer;
-    const section = sectionRef.current;
-    const left = leftRef.current;
-    const right = rightRef.current;
-    if (!section || !left || !right) return;
-
-    // If already in viewport on mount (e.g. navigated directly here), show immediately
-    const rect = section.getBoundingClientRect();
-    if (rect.top < window.innerHeight) {
-      left.classList.add('visible');
-      right.classList.add('visible');
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          left.classList.add('visible');
-          timer = setTimeout(() => right.classList.add('visible'), 150);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0 }
-    );
-
-    observer.observe(section);
-
-    return () => {
-      observer.disconnect();
-      clearTimeout(timer);
-    };
-  }, []);
-
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-4xl mx-auto md:grid md:grid-cols-2 gap-16">
         {/* Left column */}
-        <div ref={leftRef} className="reveal mb-12 md:mb-0">
+        <div className="mb-12 md:mb-0">
           <p className="font-mono text-muted text-xs uppercase tracking-widest mb-4">
             — About
           </p>
@@ -53,7 +13,7 @@ export default function About() {
         </div>
 
         {/* Right column */}
-        <div ref={rightRef} className="reveal">
+        <div>
           <p className="font-mono text-sm leading-relaxed text-text/80 mb-4">
             I'm Sammu, a software engineer and AI builder based in New York. I just completed my master's in Computer Science (ML track) at Columbia, and I'm actively looking for my next full-time role where I can keep doing what I love most: building things that are hard to build and actually matter to the people using them.
           </p>
@@ -77,3 +37,4 @@ export default function About() {
     </section>
   );
 }
+
