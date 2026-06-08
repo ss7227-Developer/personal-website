@@ -44,7 +44,7 @@ export default function Nav() {
     const scrollFn = () => {
       const el = document.getElementById(id)
       if (!el) return
-      const top = el.getBoundingClientRect().top + window.scrollY - 80
+      const top = el.getBoundingClientRect().top + window.scrollY + 16
       window.scrollTo({ top, behavior: 'smooth' })
     }
     if (!isHome) {
