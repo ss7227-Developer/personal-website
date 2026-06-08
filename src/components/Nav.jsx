@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useActiveSection } from '../hooks/useActiveSection'
+import { useTheme } from '../context/ThemeContext'
 
 const NAV_LINKS = [
   { label: 'About', id: 'about' },
@@ -20,6 +21,7 @@ export default function Nav() {
   const navigate = useNavigate()
   const isHome = location.pathname === '/'
   const active = useActiveSection(isHome ? SECTION_IDS : [])
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -95,6 +97,15 @@ export default function Nav() {
               Resume
             </a>
           </li>
+          <li>
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="font-mono text-muted hover:text-accent transition-colors text-base"
+            >
+              {theme === 'dark' ? '☀' : '☾'}
+            </button>
+          </li>
         </ul>
 
         {/* Hamburger */}
@@ -132,6 +143,13 @@ export default function Nav() {
           >
             Resume
           </a>
+          <button
+            onClick={() => { toggleTheme(); setMenuOpen(false); }}
+            aria-label="Toggle theme"
+            className="font-mono text-base uppercase tracking-widest transition-colors text-muted hover:text-accent"
+          >
+            {theme === 'dark' ? '☀' : '☾'}
+          </button>
         </div>
       )}
     </header>
