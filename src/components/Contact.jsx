@@ -56,7 +56,7 @@ export default function Contact() {
                 GitHub
               </a>
               <a
-                href="https://www.linkedin.com/in/samyukkta-suryanarayanan/"
+                href="https://www.linkedin.com/in/samyukkta/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-xs text-muted hover:text-accent transition-colors"
@@ -83,7 +83,7 @@ export default function Contact() {
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/samyukkta-suryanarayanan/"
+              href="https://www.linkedin.com/in/samyukkta/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-xs text-muted hover:text-accent transition-colors"
