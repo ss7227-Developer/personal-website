@@ -3,6 +3,24 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-bg:      #0a0a0a;
+    --color-surface: #111111;
+    --color-border:  #1f1f1f;
+    --color-text:    #e8e6e0;
+    --color-muted:   #6b6b6b;
+    --color-accent:  #F59E0B;
+  }
+
+  html.light {
+    --color-bg:      #f5f0e8;
+    --color-surface: #ede8dc;
+    --color-border:  #d6ccb8;
+    --color-text:    #2d2520;
+    --color-muted:   #92856e;
+    --color-accent:  #b45309;
+  }
+
   html {
     scroll-behavior: smooth;
     @apply bg-bg text-text;

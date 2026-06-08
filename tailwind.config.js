@@ -4,12 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#0a0a0a',
-        surface: '#111111',
-        border: '#1f1f1f',
-        text: '#e8e6e0',
-        muted: '#6b6b6b',
-        accent: '#F59E0B',
+        bg:      'var(--color-bg)',
+        surface: 'var(--color-surface)',
+        border:  'var(--color-border)',
+        text:    'var(--color-text)',
+        muted:   'var(--color-muted)',
+        accent:  'var(--color-accent)',
       },
       fontFamily: {
         serif: ['"DM Serif Display"', 'Georgia', 'serif'],
