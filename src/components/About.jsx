@@ -12,6 +12,14 @@ export default function About() {
     const right = rightRef.current;
     if (!section || !left || !right) return;
 
+    // If already in viewport on mount (e.g. navigated directly here), show immediately
+    const rect = section.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      left.classList.add('visible');
+      right.classList.add('visible');
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -20,7 +28,7 @@ export default function About() {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0 }
     );
 
     observer.observe(section);
