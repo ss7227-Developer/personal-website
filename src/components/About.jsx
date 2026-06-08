@@ -47,13 +47,13 @@ export default function About() {
         {/* Right column */}
         <div ref={rightRef} className="reveal">
           <p className="font-mono text-sm leading-relaxed text-text/80 mb-4">
-            I'm Samyukkta — an AI engineer who thinks the gap between a working prototype and a production system is where the real engineering happens. My background spans full-stack development, ML systems, and security-aware design.
+            I'm Samyukkta — an AI engineer who thinks the gap between a working prototype and a production system is where the real engineering happens. I'm finishing my M.S. in Computer Science (ML Track) at Columbia Engineering while building AI systems in production at HerbShield and CyberGhostOps.
           </p>
           <p className="font-mono text-sm leading-relaxed text-text/80 mb-4">
-            Currently, I'm drawn to agentic AI — building systems where LLMs plan, retrieve, and act. I've built RAG pipelines, multi-agent workflows with LangGraph, and real-time anomaly detection systems that run in production environments.
+            I specialize in multi-agent orchestration, RAG pipelines, and evaluation-driven development — building systems where every architecture decision is grounded in traces and metrics, not intuition. My work spans agentic AI, structured output validation, and end-to-end retrieval systems across heterogeneous enterprise corpora.
           </p>
           <p className="font-mono text-sm leading-relaxed text-text/80">
-            I believe good AI engineering means thinking about latency, reliability, and what happens when the model is wrong. I write about this too — the messy middle of building AI systems that actually work.
+            I believe good AI engineering means being rigorous about what you measure. I run ablations, build eval harnesses, and treat hallucination mitigation as a first-class engineering problem — not an afterthought.
           </p>
         </div>
       </div>

@@ -1,9 +1,9 @@
 export const projects = [
   {
-    title: 'SSRF Auditor',
+    title: 'Multi-Agent AI Security Auditor',
     description:
-      'A hybrid security pipeline detecting Server-Side Request Forgery vulnerabilities in AI-generated Python code. Combines Semgrep static analysis with a LangGraph multi-agent triage system (URL Analyst → Sanitization Checker → Judge) with trace-based grounding, reducing hallucinations by 40%.',
-    stack: ['Python', 'LangGraph', 'Claude API', 'Semgrep', 'MCP', 'LangSmith'],
+      '3-agent LLM orchestration harness (URL Analyst, Sanitization Checker, Judge) combined with Semgrep static analysis, tested across 9 ablation conditions on 120 real-CVE files — lifting recall from 38% (static-only) to 86%. Every architecture decision grounded in EvidencePacket production traces. pytest eval harness enforces structured JSON output validation across all agent boundaries; 50%+ automated remediation.',
+    stack: ['Python', 'LangChain', 'Claude API', 'Semgrep', 'FastMCP', 'LangSmith', 'promptfoo'],
     github: 'https://github.com/ss7227-Developer/SSRF_Auditor',
   },
   {
@@ -14,10 +14,10 @@ export const projects = [
     github: 'https://github.com/ss7227-Developer/transaction-anomaly-detection',
   },
   {
-    title: 'AI-Powered Financial Insights Assistant',
+    title: 'AI-Powered Domain-Specific Insights Assistant',
     description:
-      'RAG system using Amazon Bedrock embeddings and Qdrant vector DB to extract structured insights from large financial document corpora. RAGAS evaluation pipeline with faithfulness and context precision scoring.',
-    stack: ['LangChain', 'Qdrant', 'Amazon Bedrock', 'RAGAS', 'LangSmith', 'Streamlit'],
+      'End-to-end RAG pipeline on AWS Bedrock with per-domain FAISS vector indexing, LangChain retrieval chain with page-level citations (PDF/DOCX/CSV/JSON/TXT), and structured JSON output (answer, key_insights[], confidence). Implemented Precision@k, Recall@k, MRR, and NDCG@k from scratch in a ground-truth benchmark runner that directly drove retrieval architecture, chunking, and reranking decisions.',
+    stack: ['LangChain', 'FAISS', 'Amazon Bedrock', 'AWS', 'LangSmith', 'pytest'],
     github: 'https://github.com/ss7227-Developer/insight-assistant',
   },
   {

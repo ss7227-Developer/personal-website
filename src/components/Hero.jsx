@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 
 const TAGLINES = [
   "I build AI systems that work in production.",
-  "LangGraph. RAG. Real-time inference.",
+  "Multi-agent. RAG. Eval-driven.",
   "From prototype to production engineer.",
-  "Security-aware ML systems.",
+  "Grounded in traces, not intuition.",
 ];
 
 function scrollToSection(id) {

@@ -2,24 +2,28 @@ import { useEffect, useRef } from 'react';
 
 const SKILLS = [
   {
-    category: 'AI / ML',
-    tags: ['LangGraph', 'LangChain', 'RAG', 'OpenAI API', 'Hugging Face', 'PyTorch', 'Scikit-learn', 'Pandas', 'NumPy'],
+    category: 'Programming',
+    tags: ['Python', 'SQL', 'Java', 'C++', 'JavaScript'],
   },
   {
-    category: 'Backend',
-    tags: ['Python', 'FastAPI', 'Node.js', 'Express', 'PostgreSQL', 'Redis', 'REST APIs', 'GraphQL'],
+    category: 'Agentic AI & LLMs',
+    tags: ['Multi-agent orchestration', 'LangChain', 'LlamaIndex', 'FastMCP', 'Google Genkit', 'Prompt Engineering', 'Trace-based Grounding', 'Structured Output Validation', 'Hallucination Mitigation'],
   },
   {
-    category: 'Frontend',
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Next.js'],
+    category: 'RAG & Retrieval',
+    tags: ['FAISS', 'Amazon Bedrock', 'LangChain retrieval/reranking', 'Document understanding', 'Precision@k', 'Recall@k', 'MRR', 'NDCG'],
   },
   {
-    category: 'Infrastructure',
-    tags: ['Docker', 'AWS', 'GCP', 'Vercel', 'GitHub Actions', 'CI/CD'],
+    category: 'Data Engineering',
+    tags: ['ETL pipelines', 'Celery', 'PostgreSQL', 'AWS S3', 'AWS SQS', 'AWS RDS', 'AWS EC2', 'AWS Lambda', 'DynamoDB', 'Redis'],
   },
   {
-    category: 'Security',
-    tags: ['SSRF', 'OWASP Top 10', 'Penetration Testing', 'Threat Modeling'],
+    category: 'ML & Full-Stack',
+    tags: ['PyTorch', 'Scikit-learn', 'XGBoost', 'MLflow', 'React 18', 'Next.js', 'Django 5.0', 'Flask', 'FastAPI', 'Streamlit'],
+  },
+  {
+    category: 'Evals & Testing',
+    tags: ['pytest', 'LangSmith', 'promptfoo', 'CI/CD', 'GitHub Actions', 'Docker', 'Structured JSON output validation'],
   },
 ];
 
