@@ -41,11 +41,17 @@ export default function Nav() {
 
   const scrollTo = (id) => {
     setMenuOpen(false)
+    const scrollFn = () => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const top = el.getBoundingClientRect().top + window.scrollY - 80
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
     if (!isHome) {
       navigate('/')
-      setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 300)
+      setTimeout(scrollFn, 300)
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+      scrollFn()
     }
   }
 
